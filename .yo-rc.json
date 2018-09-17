@@ -32,6 +32,8 @@
     "nativeLanguage": "fr",
     "languages": [
       "fr"
-    ]
+    ],
+    "herokuDeployType": "git",
+    "herokuAppName": "optisoins"
   }
 }
