@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "nc.ki.optisoins",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "5.3.4",
+    "applicationType": "monolith",
+    "baseName": "optisoins",
+    "packageName": "nc.ki.optisoins",
+    "packageFolder": "nc/ki/optisoins",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzYxMmU2NWMxM2FkNWYxOWZlNjA3ZmRmZjdmNTdlMzUxOWQzNmJlZjhmZmU5NTU2YTk3M2RiZGUyMTIwMWFlZDQxOGYxYTU3MmZkOTAxMmUyYWZkN2JmMDhjYjU3NjY2OWM1NTBmY2Y1OGE1MmExMTVmYmY3MWQ1YzJmMjkwOWI=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr"
+    ]
+  }
+}
