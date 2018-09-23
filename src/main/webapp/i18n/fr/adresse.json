@@ -1,0 +1,30 @@
+
+{
+    "optisoinsApp": {
+        "adresse" : {
+            "home": {
+                "title": "Adresses",
+                "createLabel": "Créer un nouveau Adresse",
+                "createOrEditLabel": "Créer ou éditer un Adresse"
+            },
+            "created": "Un nouveau Adresse a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Adresse avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Adresse avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Adresse {{ id }} ?"
+            },
+            "detail": {
+                "title": "Adresse"
+            },
+            "appartement": "Appartement",
+            "batiment": "Batiment",
+            "rue": "Rue",
+            "codePostal": "Code Postal",
+            "boitePostale": "Boite Postale",
+            "commune": "Commune",
+            "type": "Type",
+            "commentaire": "Commentaire",
+            "nonValide": "Non Valide"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Medecin.
+    -->
+    <changeSet id="20180923224956-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="medecins_id"
+                                 baseTableName="medecin_adresses"
+                                 constraintName="fk_medecin_adresses_medecins_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medecin"/>
+        <addForeignKeyConstraint baseColumnNames="adresses_id"
+                                 baseTableName="medecin_adresses"
+                                 constraintName="fk_medecin_adresses_adresses_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adresse"/>
+        
+        <addForeignKeyConstraint baseColumnNames="medecins_id"
+                                 baseTableName="medecin_courriels"
+                                 constraintName="fk_medecin_courriels_medecins_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medecin"/>
+        <addForeignKeyConstraint baseColumnNames="courriels_id"
+                                 baseTableName="medecin_courriels"
+                                 constraintName="fk_medecin_courriels_courriels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="courriel"/>
+        
+        <addForeignKeyConstraint baseColumnNames="medecins_id"
+                                 baseTableName="medecin_telephones"
+                                 constraintName="fk_medecin_telephones_medecins_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medecin"/>
+        <addForeignKeyConstraint baseColumnNames="telephones_id"
+                                 baseTableName="medecin_telephones"
+                                 constraintName="fk_medecin_telephones_telephones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="telephone"/>
+        
+    </changeSet>
+</databaseChangeLog>

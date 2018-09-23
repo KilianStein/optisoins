@@ -1,0 +1,33 @@
+{
+    "name": "FeuilleSoins",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipName": "priseEnCharge",
+            "otherEntityName": "priseEnCharge",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "actes",
+            "otherEntityName": "seance",
+            "otherEntityRelationshipName": "feuilleSoins"
+        },
+        {
+            "relationshipName": "etatRecapitulatif",
+            "otherEntityName": "etatRecapitulatif",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180923225001",
+    "entityTableName": "feuille_soins",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

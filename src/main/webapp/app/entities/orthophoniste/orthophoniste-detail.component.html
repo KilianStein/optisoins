@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orthophoniste">
+            <h2><span jhiTranslate="optisoinsApp.orthophoniste.detail.title">Orthophoniste</span> {{orthophoniste.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.nom">Nom</span></dt>
+                <dd>
+                    <span>{{orthophoniste.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{orthophoniste.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.numeroCafat">Numero Cafat</span></dt>
+                <dd>
+                    <span>{{orthophoniste.numeroCafat}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.numeroRidet">Numero Ridet</span></dt>
+                <dd>
+                    <span>{{orthophoniste.numeroRidet}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.compteBancaire">Compte Bancaire</span></dt>
+                <dd>
+                    <div *ngIf="orthophoniste.compteBancaireId">
+                        <a [routerLink]="['/compte-bancaire', orthophoniste.compteBancaireId, 'view']">{{orthophoniste.compteBancaireId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.telephones">Telephones</span></dt>
+                <dd>
+                    <span *ngFor="let telephones of orthophoniste.telephones; let last = last">
+                        <a [routerLink]="['/telephone', telephones?.id, 'view' ]">{{telephones.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.adresses">Adresses</span></dt>
+                <dd>
+                    <span *ngFor="let adresses of orthophoniste.adresses; let last = last">
+                        <a [routerLink]="['/adresse', adresses?.id, 'view' ]">{{adresses.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.orthophoniste.courriels">Courriels</span></dt>
+                <dd>
+                    <span *ngFor="let courriels of orthophoniste.courriels; let last = last">
+                        <a [routerLink]="['/courriel', courriels?.id, 'view' ]">{{courriels.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/orthophoniste', orthophoniste.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

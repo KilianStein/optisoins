@@ -1,0 +1,86 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="optisoinsApp.seance.home.title">Seances</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-seance" [routerLink]="['/seance/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="optisoinsApp.seance.home.createLabel">
+            Create new Seance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="seances">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.dateDebut">Date Debut</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.dateFin">Date Fin</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.origine">Origine</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.domicile">Domicile</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.ticketModerateur">Ticket Moderateur</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.bilan">Bilan</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.etat">Etat</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.commentaire">Commentaire</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.orthophoniste">Orthophoniste</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.priseEnCharge">Prise En Charge</span></th>
+            <th><span jhiTranslate="optisoinsApp.seance.feuilleSoins">Feuille Soins</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let seance of seances ;trackBy: trackId">
+                <td><a [routerLink]="['/seance', seance.id, 'view' ]">{{seance.id}}</a></td>
+                <td>{{seance.dateDebut | date:'medium'}}</td>
+                <td>{{seance.dateFin | date:'medium'}}</td>
+                <td>{{seance.origine}}</td>
+                <td>{{seance.domicile}}</td>
+                <td>{{seance.ticketModerateur}}</td>
+                <td>{{seance.bilan}}</td>
+                <td jhiTranslate="{{'optisoinsApp.EtatSeance.' + seance.etat}}">{{seance.etat}}</td>
+                <td>{{seance.commentaire}}</td>
+                <td>
+                    <div *ngIf="seance.orthophonisteId">
+                        <a [routerLink]="['../orthophoniste', seance.orthophonisteId , 'view' ]" >{{seance.orthophonisteId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="seance.priseEnChargeId">
+                        <a [routerLink]="['../prise-en-charge', seance.priseEnChargeId , 'view' ]" >{{seance.priseEnChargeId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="seance.feuilleSoinsId">
+                        <a [routerLink]="['../feuille-soins', seance.feuilleSoinsId , 'view' ]" >{{seance.feuilleSoinsId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/seance', seance.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/seance', seance.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'seance/'+ seance.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

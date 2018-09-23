@@ -1,0 +1,26 @@
+
+{
+    "optisoinsApp": {
+        "ordonnance" : {
+            "home": {
+                "title": "Ordonnances",
+                "createLabel": "Créer un nouveau Ordonnance",
+                "createOrEditLabel": "Créer ou éditer un Ordonnance"
+            },
+            "created": "Un nouveau Ordonnance a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ordonnance avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ordonnance avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ordonnance {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ordonnance"
+            },
+            "datePrescription": "Date Prescription",
+            "nombreSeances": "Nombre Seances",
+            "medecin": "Medecin",
+            "demandeEntentePrealable": "Demande Entente Prealable",
+            "priseEnCharge": "Prise En Charge"
+        }
+    }
+}

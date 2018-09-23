@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-orthophoniste-heading" jhiTranslate="optisoinsApp.orthophoniste.home.createOrEditLabel">Create or edit a Orthophoniste</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orthophoniste.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orthophoniste.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.orthophoniste.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="orthophoniste.nom" required/>
+                    <div [hidden]="!(editForm.controls.nom?.dirty && editForm.controls.nom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.orthophoniste.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                        [(ngModel)]="orthophoniste.prenom" required/>
+                    <div [hidden]="!(editForm.controls.prenom?.dirty && editForm.controls.prenom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.orthophoniste.numeroCafat" for="field_numeroCafat">Numero Cafat</label>
+                    <input type="text" class="form-control" name="numeroCafat" id="field_numeroCafat"
+                        [(ngModel)]="orthophoniste.numeroCafat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.orthophoniste.numeroRidet" for="field_numeroRidet">Numero Ridet</label>
+                    <input type="text" class="form-control" name="numeroRidet" id="field_numeroRidet"
+                        [(ngModel)]="orthophoniste.numeroRidet" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.orthophoniste.compteBancaire" for="field_compteBancaire">Compte Bancaire</label>
+                    <select class="form-control" id="field_compteBancaire" name="compteBancaire" [(ngModel)]="orthophoniste.compteBancaireId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="compteBancaireOption.id" *ngFor="let compteBancaireOption of comptebancaires; trackBy: trackCompteBancaireById">{{compteBancaireOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="optisoinsApp.orthophoniste.telephones" for="field_telephones">Telephones</label>
+                    <select class="form-control" id="field_telephones" multiple name="telephones" [(ngModel)]="orthophoniste.telephones">
+                        <option [ngValue]="getSelected(orthophoniste.telephones, telephoneOption)" *ngFor="let telephoneOption of telephones; trackBy: trackTelephoneById">{{telephoneOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="optisoinsApp.orthophoniste.adresses" for="field_adresses">Adresses</label>
+                    <select class="form-control" id="field_adresses" multiple name="adresses" [(ngModel)]="orthophoniste.adresses">
+                        <option [ngValue]="getSelected(orthophoniste.adresses, adresseOption)" *ngFor="let adresseOption of adresses; trackBy: trackAdresseById">{{adresseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="optisoinsApp.orthophoniste.courriels" for="field_courriels">Courriels</label>
+                    <select class="form-control" id="field_courriels" multiple name="courriels" [(ngModel)]="orthophoniste.courriels">
+                        <option [ngValue]="getSelected(orthophoniste.courriels, courrielOption)" *ngFor="let courrielOption of courriels; trackBy: trackCourrielById">{{courrielOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

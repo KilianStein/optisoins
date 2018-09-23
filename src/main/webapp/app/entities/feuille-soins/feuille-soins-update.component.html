@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-feuille-soins-heading" jhiTranslate="optisoinsApp.feuilleSoins.home.createOrEditLabel">Create or edit a Feuille Soins</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!feuilleSoins.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="feuilleSoins.id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.feuilleSoins.priseEnCharge" for="field_priseEnCharge">Prise En Charge</label>
+                    <select class="form-control" id="field_priseEnCharge" name="priseEnCharge" [(ngModel)]="feuilleSoins.priseEnChargeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="priseEnChargeOption.id" *ngFor="let priseEnChargeOption of priseencharges; trackBy: trackPriseEnChargeById">{{priseEnChargeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.feuilleSoins.etatRecapitulatif" for="field_etatRecapitulatif">Etat Recapitulatif</label>
+                    <select class="form-control" id="field_etatRecapitulatif" name="etatRecapitulatif" [(ngModel)]="feuilleSoins.etatRecapitulatifId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etatRecapitulatifOption.id" *ngFor="let etatRecapitulatifOption of etatrecapitulatifs; trackBy: trackEtatRecapitulatifById">{{etatRecapitulatifOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

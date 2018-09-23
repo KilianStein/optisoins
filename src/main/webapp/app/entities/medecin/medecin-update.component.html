@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-medecin-heading" jhiTranslate="optisoinsApp.medecin.home.createOrEditLabel">Create or edit a Medecin</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!medecin.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="medecin.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.medecin.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="medecin.nom" required/>
+                    <div [hidden]="!(editForm.controls.nom?.dirty && editForm.controls.nom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.medecin.identifiant" for="field_identifiant">Identifiant</label>
+                    <input type="text" class="form-control" name="identifiant" id="field_identifiant"
+                        [(ngModel)]="medecin.identifiant" />
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="optisoinsApp.medecin.adresses" for="field_adresses">Adresses</label>
+                    <select class="form-control" id="field_adresses" multiple name="adresses" [(ngModel)]="medecin.adresses">
+                        <option [ngValue]="getSelected(medecin.adresses, adresseOption)" *ngFor="let adresseOption of adresses; trackBy: trackAdresseById">{{adresseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="optisoinsApp.medecin.courriels" for="field_courriels">Courriels</label>
+                    <select class="form-control" id="field_courriels" multiple name="courriels" [(ngModel)]="medecin.courriels">
+                        <option [ngValue]="getSelected(medecin.courriels, courrielOption)" *ngFor="let courrielOption of courriels; trackBy: trackCourrielById">{{courrielOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="optisoinsApp.medecin.telephones" for="field_telephones">Telephones</label>
+                    <select class="form-control" id="field_telephones" multiple name="telephones" [(ngModel)]="medecin.telephones">
+                        <option [ngValue]="getSelected(medecin.telephones, telephoneOption)" *ngFor="let telephoneOption of telephones; trackBy: trackTelephoneById">{{telephoneOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

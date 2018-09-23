@@ -1,0 +1,9 @@
+{
+    "optisoinsApp": {
+        "TypeMutuelle" : {
+            "null": "",
+            "PRINCIPAL": "PRINCIPAL",
+            "SECONDAIRE": "SECONDAIRE"
+        }
+    }
+}

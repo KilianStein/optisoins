@@ -1,0 +1,11 @@
+{
+    "optisoinsApp": {
+        "TypeLienAssure" : {
+            "null": "",
+            "CONJOINT": "CONJOINT",
+            "CONCUBIN": "CONCUBIN",
+            "ENFANT": "ENFANT",
+            "AUTRE": "AUTRE"
+        }
+    }
+}

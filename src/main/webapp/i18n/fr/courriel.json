@@ -1,0 +1,24 @@
+
+{
+    "optisoinsApp": {
+        "courriel" : {
+            "home": {
+                "title": "Courriels",
+                "createLabel": "Créer un nouveau Courriel",
+                "createOrEditLabel": "Créer ou éditer un Courriel"
+            },
+            "created": "Un nouveau Courriel a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Courriel avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Courriel avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Courriel {{ id }} ?"
+            },
+            "detail": {
+                "title": "Courriel"
+            },
+            "email": "Email",
+            "type": "Type",
+            "commentaire": "Commentaire"
+        }
+    }
+}

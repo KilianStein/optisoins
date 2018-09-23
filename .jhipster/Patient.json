@@ -1,0 +1,97 @@
+{
+    "name": "Patient",
+    "fields": [
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroCafat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateNaissance",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "employeur",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "situation",
+            "fieldType": "SituationPatient",
+            "fieldValues": "SALARIE,TRAVAILLEUR_INDEPENDANT,FONCTIONNAIRE,RETRAITE,SCOLAIRE,INACTIF",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "patientele",
+            "otherEntityName": "patientele",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "assure",
+            "otherEntityName": "assure",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "patient"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "prisesEnCharge",
+            "otherEntityName": "priseEnCharge",
+            "otherEntityRelationshipName": "patient"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "telephones",
+            "otherEntityName": "telephone",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "adresses",
+            "otherEntityName": "adresse",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "courriels",
+            "otherEntityName": "courriel",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180923224952",
+    "entityTableName": "patient",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

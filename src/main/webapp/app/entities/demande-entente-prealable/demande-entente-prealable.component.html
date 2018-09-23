@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="optisoinsApp.demandeEntentePrealable.home.title">Demande Entente Prealables</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-demande-entente-prealable" [routerLink]="['/demande-entente-prealable/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="optisoinsApp.demandeEntentePrealable.home.createLabel">
+            Create new Demande Entente Prealable
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="demandeEntentePrealables">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="optisoinsApp.demandeEntentePrealable.numeroACP">Numero ACP</span></th>
+            <th><span jhiTranslate="optisoinsApp.demandeEntentePrealable.nombreSeances">Nombre Seances</span></th>
+            <th><span jhiTranslate="optisoinsApp.demandeEntentePrealable.ordonnance">Ordonnance</span></th>
+            <th><span jhiTranslate="optisoinsApp.demandeEntentePrealable.amo">Amo</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let demandeEntentePrealable of demandeEntentePrealables ;trackBy: trackId">
+                <td><a [routerLink]="['/demande-entente-prealable', demandeEntentePrealable.id, 'view' ]">{{demandeEntentePrealable.id}}</a></td>
+                <td>{{demandeEntentePrealable.numeroACP}}</td>
+                <td>{{demandeEntentePrealable.nombreSeances}}</td>
+                <td>
+                    <div *ngIf="demandeEntentePrealable.ordonnanceId">
+                        <a [routerLink]="['../ordonnance', demandeEntentePrealable.ordonnanceId , 'view' ]" >{{demandeEntentePrealable.ordonnanceId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="demandeEntentePrealable.amoId">
+                        <a [routerLink]="['../amo', demandeEntentePrealable.amoId , 'view' ]" >{{demandeEntentePrealable.amoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/demande-entente-prealable', demandeEntentePrealable.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/demande-entente-prealable', demandeEntentePrealable.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'demande-entente-prealable/'+ demandeEntentePrealable.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

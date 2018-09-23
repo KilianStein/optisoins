@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-seance-heading" jhiTranslate="optisoinsApp.seance.home.createOrEditLabel">Create or edit a Seance</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!seance.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="seance.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.dateDebut" for="field_dateDebut">Date Debut</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebut" type="datetime-local" class="form-control" name="dateDebut" [(ngModel)]="dateDebut"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dateDebut?.dirty && editForm.controls.dateDebut?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dateDebut?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dateDebut?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.dateFin" for="field_dateFin">Date Fin</label>
+                    <div class="d-flex">
+                        <input id="field_dateFin" type="datetime-local" class="form-control" name="dateFin" [(ngModel)]="dateFin"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dateFin?.dirty && editForm.controls.dateFin?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dateFin?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dateFin?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.origine" for="field_origine">Origine</label>
+                    <input type="text" class="form-control" name="origine" id="field_origine"
+                        [(ngModel)]="seance.origine" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.domicile" for="field_domicile">Domicile</label>
+                    <input type="checkbox" class="form-control" name="domicile" id="field_domicile"
+                        [(ngModel)]="seance.domicile" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.ticketModerateur" for="field_ticketModerateur">Ticket Moderateur</label>
+                    <input type="checkbox" class="form-control" name="ticketModerateur" id="field_ticketModerateur"
+                        [(ngModel)]="seance.ticketModerateur" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.bilan" for="field_bilan">Bilan</label>
+                    <input type="checkbox" class="form-control" name="bilan" id="field_bilan"
+                        [(ngModel)]="seance.bilan" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.etat" for="field_etat">Etat</label>
+                    <select class="form-control" name="etat" [(ngModel)]="seance.etat" id="field_etat" >
+                        <option value="PLANIFIE">{{'optisoinsApp.EtatSeance.PLANIFIE' | translate}}</option>
+                        <option value="ANNULE">{{'optisoinsApp.EtatSeance.ANNULE' | translate}}</option>
+                        <option value="REALISE">{{'optisoinsApp.EtatSeance.REALISE' | translate}}</option>
+                        <option value="FACTURE">{{'optisoinsApp.EtatSeance.FACTURE' | translate}}</option>
+                        <option value="PAYE">{{'optisoinsApp.EtatSeance.PAYE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.commentaire" for="field_commentaire">Commentaire</label>
+                    <input type="text" class="form-control" name="commentaire" id="field_commentaire"
+                        [(ngModel)]="seance.commentaire" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.orthophoniste" for="field_orthophoniste">Orthophoniste</label>
+                    <select class="form-control" id="field_orthophoniste" name="orthophoniste" [(ngModel)]="seance.orthophonisteId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orthophonisteOption.id" *ngFor="let orthophonisteOption of orthophonistes; trackBy: trackOrthophonisteById">{{orthophonisteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.priseEnCharge" for="field_priseEnCharge">Prise En Charge</label>
+                    <select class="form-control" id="field_priseEnCharge" name="priseEnCharge" [(ngModel)]="seance.priseEnChargeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="priseEnChargeOption.id" *ngFor="let priseEnChargeOption of priseencharges; trackBy: trackPriseEnChargeById">{{priseEnChargeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.seance.feuilleSoins" for="field_feuilleSoins">Feuille Soins</label>
+                    <select class="form-control" id="field_feuilleSoins" name="feuilleSoins" [(ngModel)]="seance.feuilleSoinsId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="feuilleSoinsOption.id" *ngFor="let feuilleSoinsOption of feuillesoins; trackBy: trackFeuilleSoinsById">{{feuilleSoinsOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

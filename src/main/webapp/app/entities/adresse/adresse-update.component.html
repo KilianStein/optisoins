@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-adresse-heading" jhiTranslate="optisoinsApp.adresse.home.createOrEditLabel">Create or edit a Adresse</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!adresse.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="adresse.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.appartement" for="field_appartement">Appartement</label>
+                    <input type="text" class="form-control" name="appartement" id="field_appartement"
+                        [(ngModel)]="adresse.appartement" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.batiment" for="field_batiment">Batiment</label>
+                    <input type="text" class="form-control" name="batiment" id="field_batiment"
+                        [(ngModel)]="adresse.batiment" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.rue" for="field_rue">Rue</label>
+                    <input type="text" class="form-control" name="rue" id="field_rue"
+                        [(ngModel)]="adresse.rue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.codePostal" for="field_codePostal">Code Postal</label>
+                    <input type="text" class="form-control" name="codePostal" id="field_codePostal"
+                        [(ngModel)]="adresse.codePostal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.boitePostale" for="field_boitePostale">Boite Postale</label>
+                    <input type="text" class="form-control" name="boitePostale" id="field_boitePostale"
+                        [(ngModel)]="adresse.boitePostale" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.commune" for="field_commune">Commune</label>
+                    <input type="text" class="form-control" name="commune" id="field_commune"
+                        [(ngModel)]="adresse.commune" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="adresse.type" id="field_type"  required>
+                        <option value="POSTALE">{{'optisoinsApp.TypeAdresse.POSTALE' | translate}}</option>
+                        <option value="DOMICILE">{{'optisoinsApp.TypeAdresse.DOMICILE' | translate}}</option>
+                        <option value="AUTRE">{{'optisoinsApp.TypeAdresse.AUTRE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.commentaire" for="field_commentaire">Commentaire</label>
+                    <input type="text" class="form-control" name="commentaire" id="field_commentaire"
+                        [(ngModel)]="adresse.commentaire" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.adresse.nonValide" for="field_nonValide">Non Valide</label>
+                    <input type="checkbox" class="form-control" name="nonValide" id="field_nonValide"
+                        [(ngModel)]="adresse.nonValide" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

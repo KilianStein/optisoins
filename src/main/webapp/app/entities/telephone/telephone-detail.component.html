@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="telephone">
+            <h2><span jhiTranslate="optisoinsApp.telephone.detail.title">Telephone</span> {{telephone.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.telephone.numeroTelephone">Numero Telephone</span></dt>
+                <dd>
+                    <span>{{telephone.numeroTelephone}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.telephone.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypeTelephone.' + telephone.type}}">{{telephone.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.telephone.commentaire">Commentaire</span></dt>
+                <dd>
+                    <span>{{telephone.commentaire}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/telephone', telephone.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

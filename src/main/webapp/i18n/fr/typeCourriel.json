@@ -1,0 +1,10 @@
+{
+    "optisoinsApp": {
+        "TypeCourriel" : {
+            "null": "",
+            "PERSONNEL": "PERSONNEL",
+            "PROFESSIONEL": "PROFESSIONEL",
+            "AUTRE": "AUTRE"
+        }
+    }
+}

@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assure">
+            <h2><span jhiTranslate="optisoinsApp.assure.detail.title">Assure</span> {{assure.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.assure.nom">Nom</span></dt>
+                <dd>
+                    <span>{{assure.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{assure.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.numeroCafat">Numero Cafat</span></dt>
+                <dd>
+                    <span>{{assure.numeroCafat}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{assure.dateNaissance}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.lienAssure">Lien Assure</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypeLienAssure.' + assure.lienAssure}}">{{assure.lienAssure}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.courriel">Courriel</span></dt>
+                <dd>
+                    <div *ngIf="assure.courrielId">
+                        <a [routerLink]="['/courriel', assure.courrielId, 'view']">{{assure.courrielId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.adresse">Adresse</span></dt>
+                <dd>
+                    <div *ngIf="assure.adresseId">
+                        <a [routerLink]="['/adresse', assure.adresseId, 'view']">{{assure.adresseId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.assure.telephone">Telephone</span></dt>
+                <dd>
+                    <div *ngIf="assure.telephoneId">
+                        <a [routerLink]="['/telephone', assure.telephoneId, 'view']">{{assure.telephoneId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/assure', assure.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

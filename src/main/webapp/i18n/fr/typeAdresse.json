@@ -1,0 +1,10 @@
+{
+    "optisoinsApp": {
+        "TypeAdresse" : {
+            "null": "",
+            "POSTALE": "POSTALE",
+            "DOMICILE": "DOMICILE",
+            "AUTRE": "AUTRE"
+        }
+    }
+}

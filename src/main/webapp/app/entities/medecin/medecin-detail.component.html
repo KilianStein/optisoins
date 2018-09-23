@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medecin">
+            <h2><span jhiTranslate="optisoinsApp.medecin.detail.title">Medecin</span> {{medecin.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.medecin.nom">Nom</span></dt>
+                <dd>
+                    <span>{{medecin.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.medecin.identifiant">Identifiant</span></dt>
+                <dd>
+                    <span>{{medecin.identifiant}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.medecin.adresses">Adresses</span></dt>
+                <dd>
+                    <span *ngFor="let adresses of medecin.adresses; let last = last">
+                        <a [routerLink]="['/adresse', adresses?.id, 'view' ]">{{adresses.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.medecin.courriels">Courriels</span></dt>
+                <dd>
+                    <span *ngFor="let courriels of medecin.courriels; let last = last">
+                        <a [routerLink]="['/courriel', courriels?.id, 'view' ]">{{courriels.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.medecin.telephones">Telephones</span></dt>
+                <dd>
+                    <span *ngFor="let telephones of medecin.telephones; let last = last">
+                        <a [routerLink]="['/telephone', telephones?.id, 'view' ]">{{telephones.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medecin', medecin.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

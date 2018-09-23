@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="optisoinsApp.carteAideMedicale.home.title">Carte Aide Medicales</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-carte-aide-medicale" [routerLink]="['/carte-aide-medicale/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="optisoinsApp.carteAideMedicale.home.createLabel">
+            Create new Carte Aide Medicale
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="carteAideMedicales">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="optisoinsApp.carteAideMedicale.dateDebutValidite">Date Debut Validite</span></th>
+            <th><span jhiTranslate="optisoinsApp.carteAideMedicale.dateFinValidite">Date Fin Validite</span></th>
+            <th><span jhiTranslate="optisoinsApp.carteAideMedicale.numero">Numero</span></th>
+            <th><span jhiTranslate="optisoinsApp.carteAideMedicale.assure">Assure</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let carteAideMedicale of carteAideMedicales ;trackBy: trackId">
+                <td><a [routerLink]="['/carte-aide-medicale', carteAideMedicale.id, 'view' ]">{{carteAideMedicale.id}}</a></td>
+                <td>{{carteAideMedicale.dateDebutValidite | date:'mediumDate'}}</td>
+                <td>{{carteAideMedicale.dateFinValidite | date:'mediumDate'}}</td>
+                <td>{{carteAideMedicale.numero}}</td>
+                <td>
+                    <div *ngIf="carteAideMedicale.assureId">
+                        <a [routerLink]="['../assure', carteAideMedicale.assureId , 'view' ]" >{{carteAideMedicale.assureId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/carte-aide-medicale', carteAideMedicale.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/carte-aide-medicale', carteAideMedicale.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'carte-aide-medicale/'+ carteAideMedicale.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

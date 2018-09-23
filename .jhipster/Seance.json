@@ -1,0 +1,75 @@
+{
+    "name": "Seance",
+    "fields": [
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "origine",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "domicile",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ticketModerateur",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "bilan",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "EtatSeance",
+            "fieldValues": "PLANIFIE,ANNULE,REALISE,FACTURE,PAYE"
+        },
+        {
+            "fieldName": "commentaire",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "orthophoniste",
+            "otherEntityName": "orthophoniste",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "seance"
+        },
+        {
+            "relationshipName": "priseEnCharge",
+            "otherEntityName": "priseEnCharge",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "feuilleSoins",
+            "otherEntityName": "feuilleSoins",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180923224959",
+    "entityTableName": "seance",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,82 @@
+{
+    "name": "Orthophoniste",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroCafat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroRidet",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "compteBancaire",
+            "otherEntityName": "compteBancaire",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "patientele",
+            "otherEntityName": "patientele",
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "etatsRecapitulatif",
+            "otherEntityName": "etatRecapitulatif",
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "telephones",
+            "otherEntityName": "telephone",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "adresses",
+            "otherEntityName": "adresse",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "courriels",
+            "otherEntityName": "courriel",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180923224945",
+    "entityTableName": "orthophoniste",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,55 @@
+{
+    "name": "Adresse",
+    "fields": [
+        {
+            "fieldName": "appartement",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "batiment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codePostal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "boitePostale",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commune",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeAdresse",
+            "fieldValues": "POSTALE,DOMICILE,AUTRE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nonValide",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180923224949",
+    "entityTableName": "adresse",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

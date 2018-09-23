@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Orthophoniste.
+    -->
+    <changeSet id="20180923224945-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="compte_bancaire_id"
+                                 baseTableName="orthophoniste"
+                                 constraintName="fk_orthophoniste_compte_bancaire_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="compte_bancaire"/>
+
+        <addForeignKeyConstraint baseColumnNames="orthophonistes_id"
+                                 baseTableName="orthophoniste_telephones"
+                                 constraintName="fk_orthophoniste_telephones_orthophonistes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orthophoniste"/>
+        <addForeignKeyConstraint baseColumnNames="telephones_id"
+                                 baseTableName="orthophoniste_telephones"
+                                 constraintName="fk_orthophoniste_telephones_telephones_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="telephone"/>
+        
+        <addForeignKeyConstraint baseColumnNames="orthophonistes_id"
+                                 baseTableName="orthophoniste_adresses"
+                                 constraintName="fk_orthophoniste_adresses_orthophonistes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orthophoniste"/>
+        <addForeignKeyConstraint baseColumnNames="adresses_id"
+                                 baseTableName="orthophoniste_adresses"
+                                 constraintName="fk_orthophoniste_adresses_adresses_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adresse"/>
+        
+        <addForeignKeyConstraint baseColumnNames="orthophonistes_id"
+                                 baseTableName="orthophoniste_courriels"
+                                 constraintName="fk_orthophoniste_courriels_orthophonistes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orthophoniste"/>
+        <addForeignKeyConstraint baseColumnNames="courriels_id"
+                                 baseTableName="orthophoniste_courriels"
+                                 constraintName="fk_orthophoniste_courriels_courriels_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="courriel"/>
+        
+    </changeSet>
+</databaseChangeLog>

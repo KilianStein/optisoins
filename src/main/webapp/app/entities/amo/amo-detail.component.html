@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="amo">
+            <h2><span jhiTranslate="optisoinsApp.amo.detail.title">Amo</span> {{amo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.amo.code">Code</span></dt>
+                <dd>
+                    <span>{{amo.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.amo.tarif">Tarif</span></dt>
+                <dd>
+                    <span>{{amo.tarif}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/amo', amo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
