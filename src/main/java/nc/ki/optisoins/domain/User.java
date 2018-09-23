@@ -85,6 +85,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date")
     private Instant resetDate = null;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(unique = true)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Orthophoniste orthophoniste;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -190,6 +195,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLangKey(String langKey) {
         this.langKey = langKey;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public Orthophoniste getOrthophoniste() {
+        return orthophoniste;
+    }
+
+    public void setOrthophoniste(Orthophoniste orthophoniste) {
+        this.orthophoniste = orthophoniste;
     }
 
     public Set<Authority> getAuthorities() {

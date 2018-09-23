@@ -1,0 +1,34 @@
+{
+    "profil-orthophoniste": {
+        "title": "Votre Profil Orthophoniste",
+        "form": {
+            "firstname": "Prénom",
+            "firstname.placeholder": "Votre prénom",
+            "lastname": "Nom",
+            "lastname.placeholder": "Votre nom",
+            "numero-cafat": "Numero Cafat",
+            "numero-cafat.placeholder": "Votre numéro Cafat",
+            "numero-ridet": "Numero Cafat",
+            "numero-ridet.placeholder": "Votre numéro Ridet",
+            "button": "Sauvegarder"
+        },
+        "messages": {
+            "error": {
+                "fail": "<strong>Une erreur est survenue !</strong> Votre profil Orthophoniste n'a pas été sauvegardé."
+            },
+            "success": "<strong>Votre profil Orthophoniste a été sauvegardé !</strong>",
+            "validate": {
+                "firstname": {
+                    "required": "Votre prénom est requis.",
+                    "minlength": "Votre prénom doit comporter au moins un caractère.",
+                    "maxlength": "Votre prénom ne doit pas comporter plus de 50 caractères."
+                },
+                "lastname": {
+                    "required": "Votre nom est requis.",
+                    "minlength": "Votre nom doit comporter au moins un caractère.",
+                    "maxlength": "Votre nom ne doit pas comporter plus de 50 caractères."
+                }
+            }
+        }
+    }
+}

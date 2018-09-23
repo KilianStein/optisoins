@@ -51,6 +51,8 @@ public class UserDTO {
 
     private Instant lastModifiedDate;
 
+    private Long orthophonisteId;
+
     private Set<String> authorities;
 
     public UserDTO() {
@@ -70,6 +72,7 @@ public class UserDTO {
         this.createdDate = user.getCreatedDate();
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
+        this.orthophonisteId = user.getOrthophoniste() != null ? user.getOrthophoniste().getId() : null;
         this.authorities = user.getAuthorities().stream()
             .map(Authority::getName)
             .collect(Collectors.toSet());
@@ -171,6 +174,14 @@ public class UserDTO {
         this.lastModifiedDate = lastModifiedDate;
     }
 
+    public Long getOrthophonisteId() {
+        return orthophonisteId;
+    }
+
+    public void setOrthophonisteId(Long orthophonisteId) {
+        this.orthophonisteId = orthophonisteId;
+    }
+
     public Set<String> getAuthorities() {
         return authorities;
     }
@@ -182,18 +193,20 @@ public class UserDTO {
     @Override
     public String toString() {
         return "UserDTO{" +
-            "login='" + login + '\'' +
+            "id=" + id +
+            ", login='" + login + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
-            ", createdBy=" + createdBy +
+            ", createdBy='" + createdBy + '\'' +
             ", createdDate=" + createdDate +
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
+            ", orthophonisteId=" + orthophonisteId +
             ", authorities=" + authorities +
-            "}";
+            '}';
     }
 }
