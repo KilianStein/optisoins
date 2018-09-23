@@ -6,7 +6,7 @@ import { Principal, AccountService } from 'app/core';
 import { SettingsComponent } from 'app/account/settings/settings.component';
 
 describe('Component Tests', () => {
-    describe('SettingsComponent', () => {
+    describe('ProfilOrthophonisteComponent', () => {
         let comp: SettingsComponent;
         let fixture: ComponentFixture<SettingsComponent>;
         let mockAuth: any;

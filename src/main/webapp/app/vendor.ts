@@ -79,3 +79,5 @@ library.add(faTrashAlt);
 library.add(faAsterisk);
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here
+import { faUserMd } from '@fortawesome/free-solid-svg-icons/faUserMd';
+library.add(faUserMd);

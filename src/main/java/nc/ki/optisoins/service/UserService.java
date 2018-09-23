@@ -2,6 +2,7 @@ package nc.ki.optisoins.service;
 
 import nc.ki.optisoins.config.Constants;
 import nc.ki.optisoins.domain.Authority;
+import nc.ki.optisoins.domain.Orthophoniste;
 import nc.ki.optisoins.domain.User;
 import nc.ki.optisoins.repository.AuthorityRepository;
 import nc.ki.optisoins.repository.UserRepository;
@@ -117,11 +118,21 @@ public class UserService {
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
+        newUser.setOrthophoniste(createOrthophoniste(newUser));
         userRepository.save(newUser);
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
     }
+
+    private Orthophoniste createOrthophoniste(User user) {
+        Orthophoniste orthophoniste = new Orthophoniste();
+        orthophoniste.setPrenom(user.getFirstName());
+        orthophoniste.setNom(user.getLastName());
+        return orthophoniste;
+
+    }
+
     private boolean removeNonActivatedUser(User existingUser){
         if(existingUser.getActivated()) {
              return false;

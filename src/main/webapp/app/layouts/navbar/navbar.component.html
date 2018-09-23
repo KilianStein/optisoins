@@ -232,6 +232,12 @@
                         </a>
                     </li>
                     <li *ngSwitchCase="true">
+                        <a class="dropdown-item" routerLink="profil-orthophoniste" routerLinkActive="active" (click)="collapseNavbar()">
+                            <fa-icon [icon]="'user-md'" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.account.profil-orthophoniste">Profil Orthophoniste</span>
+                        </a>
+                    </li>
+                    <li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="password" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon [icon]="'clock'" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.account.password">Password</span>
