@@ -1,0 +1,27 @@
+
+{
+    "optisoinsApp": {
+        "telephone" : {
+            "home": {
+                "title": "Telephones",
+                "createLabel": "Créer un nouveau Telephone",
+                "createOrEditLabel": "Créer ou éditer un Telephone"
+            },
+            "created": "Un nouveau Telephone a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Telephone avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Telephone avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Telephone {{ id }} ?"
+            },
+            "detail": {
+                "title": "Telephone"
+            },
+            "numeroTelephone": "Numero Telephone",
+            "type": "Type",
+            "commentaire": "Commentaire",
+            "orthophoniste": "Orthophoniste",
+            "patient": "Patient",
+            "medecin": "Medecin"
+        }
+    }
+}

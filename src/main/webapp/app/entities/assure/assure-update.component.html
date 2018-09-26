@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-assure-heading" jhiTranslate="optisoinsApp.assure.home.createOrEditLabel">Create or edit a Assure</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!assure.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="assure.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                        [(ngModel)]="assure.nom" required/>
+                    <div [hidden]="!(editForm.controls.nom?.dirty && editForm.controls.nom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                        [(ngModel)]="assure.prenom" required/>
+                    <div [hidden]="!(editForm.controls.prenom?.dirty && editForm.controls.prenom?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.prenom?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.numeroCafat" for="field_numeroCafat">Numero Cafat</label>
+                    <input type="text" class="form-control" name="numeroCafat" id="field_numeroCafat"
+                        [(ngModel)]="assure.numeroCafat" required/>
+                    <div [hidden]="!(editForm.controls.numeroCafat?.dirty && editForm.controls.numeroCafat?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numeroCafat?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.dateNaissance" for="field_dateNaissance">Date Naissance</label>
+                    <div class="input-group">
+                        <input id="field_dateNaissance" type="text" class="form-control" name="dateNaissance" ngbDatepicker  #dateNaissanceDp="ngbDatepicker" [(ngModel)]="assure.dateNaissance"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.lienAssure" for="field_lienAssure">Lien Assure</label>
+                    <select class="form-control" name="lienAssure" [(ngModel)]="assure.lienAssure" id="field_lienAssure" >
+                        <option value="CONJOINT">{{'optisoinsApp.TypeLienAssure.CONJOINT' | translate}}</option>
+                        <option value="CONCUBIN">{{'optisoinsApp.TypeLienAssure.CONCUBIN' | translate}}</option>
+                        <option value="ENFANT">{{'optisoinsApp.TypeLienAssure.ENFANT' | translate}}</option>
+                        <option value="AUTRE">{{'optisoinsApp.TypeLienAssure.AUTRE' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.courriel" for="field_courriel">Courriel</label>
+                    <select class="form-control" id="field_courriel" name="courriel" [(ngModel)]="assure.courrielId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="courrielOption.id" *ngFor="let courrielOption of courriels; trackBy: trackCourrielById">{{courrielOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.adresse" for="field_adresse">Adresse</label>
+                    <select class="form-control" id="field_adresse" name="adresse" [(ngModel)]="assure.adresseId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adresseOption.id" *ngFor="let adresseOption of adresses; trackBy: trackAdresseById">{{adresseOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.assure.telephone" for="field_telephone">Telephone</label>
+                    <select class="form-control" id="field_telephone" name="telephone" [(ngModel)]="assure.telephoneId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="telephoneOption.id" *ngFor="let telephoneOption of telephones; trackBy: trackTelephoneById">{{telephoneOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{
+    "name": "Patientele",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "orthophoniste",
+            "otherEntityName": "orthophoniste",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "titulaire",
+            "otherEntityName": "orthophoniste",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "patientele"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "patients",
+            "otherEntityName": "patient",
+            "otherEntityRelationshipName": "patientele"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "remplacantes",
+            "otherEntityName": "remplacante",
+            "otherEntityRelationshipName": "patientele"
+        }
+    ],
+    "changelogDate": "20180926095157",
+    "entityTableName": "patientele",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

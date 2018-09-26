@@ -1,0 +1,55 @@
+{
+    "name": "Telephone",
+    "fields": [
+        {
+            "fieldName": "numeroTelephone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 6
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeTelephone",
+            "fieldValues": "PERSONNEL,PROFESSIONEL,DOMICILE,BUREAU,MOBILE,FIXE,PRINCIPAL,AUTRE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "commentaire",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "orthophoniste",
+            "otherEntityName": "orthophoniste",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "patient",
+            "otherEntityName": "patient",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "medecin",
+            "otherEntityName": "medecin",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180926095201",
+    "entityTableName": "telephone",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

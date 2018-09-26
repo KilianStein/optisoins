@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="feuilleSoins">
+            <h2><span jhiTranslate="optisoinsApp.feuilleSoins.detail.title">Feuille Soins</span> {{feuilleSoins.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.feuilleSoins.priseEnCharge">Prise En Charge</span></dt>
+                <dd>
+                    <div *ngIf="feuilleSoins.priseEnChargeId">
+                        <a [routerLink]="['/prise-en-charge', feuilleSoins.priseEnChargeId, 'view']">{{feuilleSoins.priseEnChargeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.feuilleSoins.etatRecapitulatif">Etat Recapitulatif</span></dt>
+                <dd>
+                    <div *ngIf="feuilleSoins.etatRecapitulatifId">
+                        <a [routerLink]="['/etat-recapitulatif', feuilleSoins.etatRecapitulatifId, 'view']">{{feuilleSoins.etatRecapitulatifId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/feuille-soins', feuilleSoins.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

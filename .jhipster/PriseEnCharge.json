@@ -1,0 +1,67 @@
+{
+    "name": "PriseEnCharge",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "TypePriseEnCharge",
+            "fieldValues": "CAFAT_MUTUELLE,LONGUE_MALADIE,AIDE_MEDICALE_SUD,AIDE_MEDICALE_NORD,AIDE_MEDICALE_ILES",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "accident",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "nomTierImplique",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "patient",
+            "otherEntityName": "patient",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ordonnances",
+            "otherEntityName": "ordonnance",
+            "otherEntityRelationshipName": "priseEnCharge"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "seances",
+            "otherEntityName": "seance",
+            "otherEntityRelationshipName": "priseEnCharge"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "feuillesSoins",
+            "otherEntityName": "feuilleSoins",
+            "otherEntityRelationshipName": "priseEnCharge"
+        }
+    ],
+    "changelogDate": "20180926095211",
+    "entityTableName": "prise_en_charge",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

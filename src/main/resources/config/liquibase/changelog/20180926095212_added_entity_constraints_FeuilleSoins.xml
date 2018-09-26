@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity FeuilleSoins.
+    -->
+    <changeSet id="20180926095212-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="prise_en_charge_id"
+                                 baseTableName="feuille_soins"
+                                 constraintName="fk_feuille_soins_prise_en_charge_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prise_en_charge"/>
+
+        <addForeignKeyConstraint baseColumnNames="etat_recapitulatif_id"
+                                 baseTableName="feuille_soins"
+                                 constraintName="fk_feuille_soins_etat_recapitulatif_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etat_recapitulatif"/>
+
+    </changeSet>
+</databaseChangeLog>

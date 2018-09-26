@@ -1,0 +1,50 @@
+{
+    "name": "Ordonnance",
+    "fields": [
+        {
+            "fieldName": "datePrescription",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nombreSeances",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "medecin",
+            "otherEntityName": "medecin",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "ordonnance"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "demandeEntentePrealable",
+            "otherEntityName": "demandeEntentePrealable",
+            "otherEntityRelationshipName": "ordonnance"
+        },
+        {
+            "relationshipName": "priseEnCharge",
+            "otherEntityName": "priseEnCharge",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180926095208",
+    "entityTableName": "ordonnance",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

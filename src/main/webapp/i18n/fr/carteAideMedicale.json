@@ -1,0 +1,25 @@
+
+{
+    "optisoinsApp": {
+        "carteAideMedicale" : {
+            "home": {
+                "title": "CarteAideMedicales",
+                "createLabel": "Créer un nouveau Carte Aide Medicale",
+                "createOrEditLabel": "Créer ou éditer un Carte Aide Medicale"
+            },
+            "created": "Un nouveau Carte Aide Medicale a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Carte Aide Medicale avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Carte Aide Medicale avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Carte Aide Medicale {{ id }} ?"
+            },
+            "detail": {
+                "title": "Carte Aide Medicale"
+            },
+            "dateDebutValidite": "Date Debut Validite",
+            "dateFinValidite": "Date Fin Validite",
+            "numero": "Numero",
+            "assure": "Assure"
+        }
+    }
+}

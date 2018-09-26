@@ -1,0 +1,33 @@
+{
+    "name": "EtatRecapitulatif",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "TypePriseEnCharge",
+            "fieldValues": "CAFAT_MUTUELLE,LONGUE_MALADIE,AIDE_MEDICALE_SUD,AIDE_MEDICALE_NORD,AIDE_MEDICALE_ILES"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "orthophoniste",
+            "otherEntityName": "orthophoniste",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "feuilleSoins",
+            "otherEntityName": "feuilleSoins",
+            "otherEntityRelationshipName": "etatRecapitulatif"
+        }
+    ],
+    "changelogDate": "20180926095214",
+    "entityTableName": "etat_recapitulatif",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

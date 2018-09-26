@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="optisoinsApp.courriel.home.title">Courriels</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-courriel" [routerLink]="['/courriel/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="optisoinsApp.courriel.home.createLabel">
+            Create new Courriel
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="courriels">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="optisoinsApp.courriel.email">Email</span></th>
+            <th><span jhiTranslate="optisoinsApp.courriel.type">Type</span></th>
+            <th><span jhiTranslate="optisoinsApp.courriel.commentaire">Commentaire</span></th>
+            <th><span jhiTranslate="optisoinsApp.courriel.orthophoniste">Orthophoniste</span></th>
+            <th><span jhiTranslate="optisoinsApp.courriel.patient">Patient</span></th>
+            <th><span jhiTranslate="optisoinsApp.courriel.medecin">Medecin</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let courriel of courriels ;trackBy: trackId">
+                <td><a [routerLink]="['/courriel', courriel.id, 'view' ]">{{courriel.id}}</a></td>
+                <td>{{courriel.email}}</td>
+                <td jhiTranslate="{{'optisoinsApp.TypeCourriel.' + courriel.type}}">{{courriel.type}}</td>
+                <td>{{courriel.commentaire}}</td>
+                <td>
+                    <div *ngIf="courriel.orthophonisteId">
+                        <a [routerLink]="['../orthophoniste', courriel.orthophonisteId , 'view' ]" >{{courriel.orthophonisteId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="courriel.patientId">
+                        <a [routerLink]="['../patient', courriel.patientId , 'view' ]" >{{courriel.patientId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="courriel.medecinId">
+                        <a [routerLink]="['../medecin', courriel.medecinId , 'view' ]" >{{courriel.medecinId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/courriel', courriel.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/courriel', courriel.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'courriel/'+ courriel.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

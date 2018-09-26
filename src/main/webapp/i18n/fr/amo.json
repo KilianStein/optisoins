@@ -1,0 +1,23 @@
+
+{
+    "optisoinsApp": {
+        "amo" : {
+            "home": {
+                "title": "Amos",
+                "createLabel": "Créer un nouveau Amo",
+                "createOrEditLabel": "Créer ou éditer un Amo"
+            },
+            "created": "Un nouveau Amo a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Amo avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Amo avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Amo {{ id }} ?"
+            },
+            "detail": {
+                "title": "Amo"
+            },
+            "code": "Code",
+            "tarif": "Tarif"
+        }
+    }
+}

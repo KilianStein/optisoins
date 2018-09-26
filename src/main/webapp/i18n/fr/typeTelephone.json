@@ -1,0 +1,15 @@
+{
+    "optisoinsApp": {
+        "TypeTelephone" : {
+            "null": "",
+            "PERSONNEL": "PERSONNEL",
+            "PROFESSIONEL": "PROFESSIONEL",
+            "DOMICILE": "DOMICILE",
+            "BUREAU": "BUREAU",
+            "MOBILE": "MOBILE",
+            "FIXE": "FIXE",
+            "PRINCIPAL": "PRINCIPAL",
+            "AUTRE": "AUTRE"
+        }
+    }
+}

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="patient">
+            <h2><span jhiTranslate="optisoinsApp.patient.detail.title">Patient</span> {{patient.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.patient.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{patient.prenom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.nom">Nom</span></dt>
+                <dd>
+                    <span>{{patient.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.numeroCafat">Numero Cafat</span></dt>
+                <dd>
+                    <span>{{patient.numeroCafat}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.dateNaissance">Date Naissance</span></dt>
+                <dd>
+                    <span>{{patient.dateNaissance}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.employeur">Employeur</span></dt>
+                <dd>
+                    <span>{{patient.employeur}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.situation">Situation</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.SituationPatient.' + patient.situation}}">{{patient.situation}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.patientele">Patientele</span></dt>
+                <dd>
+                    <div *ngIf="patient.patienteleId">
+                        <a [routerLink]="['/patientele', patient.patienteleId, 'view']">{{patient.patienteleId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.patient.assure">Assure</span></dt>
+                <dd>
+                    <div *ngIf="patient.assureId">
+                        <a [routerLink]="['/assure', patient.assureId, 'view']">{{patient.assureId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/patient', patient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

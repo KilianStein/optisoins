@@ -1,0 +1,12 @@
+{
+    "optisoinsApp": {
+        "EtatSeance" : {
+            "null": "",
+            "PLANIFIE": "PLANIFIE",
+            "ANNULE": "ANNULE",
+            "REALISE": "REALISE",
+            "FACTURE": "FACTURE",
+            "PAYE": "PAYE"
+        }
+    }
+}

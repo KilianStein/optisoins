@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="priseEnCharge">
+            <h2><span jhiTranslate="optisoinsApp.priseEnCharge.detail.title">Prise En Charge</span> {{priseEnCharge.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.priseEnCharge.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypePriseEnCharge.' + priseEnCharge.type}}">{{priseEnCharge.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.priseEnCharge.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{priseEnCharge.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.priseEnCharge.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{priseEnCharge.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.priseEnCharge.accident">Accident</span></dt>
+                <dd>
+                    <span>{{priseEnCharge.accident}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.priseEnCharge.nomTierImplique">Nom Tier Implique</span></dt>
+                <dd>
+                    <span>{{priseEnCharge.nomTierImplique}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.priseEnCharge.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="priseEnCharge.patientId">
+                        <a [routerLink]="['/patient', priseEnCharge.patientId, 'view']">{{priseEnCharge.patientId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prise-en-charge', priseEnCharge.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

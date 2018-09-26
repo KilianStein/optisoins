@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="etatRecapitulatif">
+            <h2><span jhiTranslate="optisoinsApp.etatRecapitulatif.detail.title">Etat Recapitulatif</span> {{etatRecapitulatif.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.etatRecapitulatif.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypePriseEnCharge.' + etatRecapitulatif.type}}">{{etatRecapitulatif.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.etatRecapitulatif.orthophoniste">Orthophoniste</span></dt>
+                <dd>
+                    <div *ngIf="etatRecapitulatif.orthophonisteId">
+                        <a [routerLink]="['/orthophoniste', etatRecapitulatif.orthophonisteId, 'view']">{{etatRecapitulatif.orthophonisteId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/etat-recapitulatif', etatRecapitulatif.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

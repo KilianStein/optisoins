@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="demandeEntentePrealable">
+            <h2><span jhiTranslate="optisoinsApp.demandeEntentePrealable.detail.title">Demande Entente Prealable</span> {{demandeEntentePrealable.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.demandeEntentePrealable.numeroACP">Numero ACP</span></dt>
+                <dd>
+                    <span>{{demandeEntentePrealable.numeroACP}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.demandeEntentePrealable.nombreSeances">Nombre Seances</span></dt>
+                <dd>
+                    <span>{{demandeEntentePrealable.nombreSeances}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.demandeEntentePrealable.ordonnance">Ordonnance</span></dt>
+                <dd>
+                    <div *ngIf="demandeEntentePrealable.ordonnanceId">
+                        <a [routerLink]="['/ordonnance', demandeEntentePrealable.ordonnanceId, 'view']">{{demandeEntentePrealable.ordonnanceId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.demandeEntentePrealable.amo">Amo</span></dt>
+                <dd>
+                    <div *ngIf="demandeEntentePrealable.amoId">
+                        <a [routerLink]="['/amo', demandeEntentePrealable.amoId, 'view']">{{demandeEntentePrealable.amoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/demande-entente-prealable', demandeEntentePrealable.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

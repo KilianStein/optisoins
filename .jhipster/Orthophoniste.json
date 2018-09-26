@@ -1,0 +1,76 @@
+{
+    "name": "Orthophoniste",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroCafat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numeroRidet",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "compteBancaire",
+            "otherEntityName": "compteBancaire",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "patientele",
+            "otherEntityName": "patientele",
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "etatsRecapitulatif",
+            "otherEntityName": "etatRecapitulatif",
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "telephones",
+            "otherEntityName": "telephone",
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "adresses",
+            "otherEntityName": "adresse",
+            "otherEntityRelationshipName": "orthophoniste"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "courriels",
+            "otherEntityName": "courriel",
+            "otherEntityRelationshipName": "orthophoniste"
+        }
+    ],
+    "changelogDate": "20180926095156",
+    "entityTableName": "orthophoniste",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

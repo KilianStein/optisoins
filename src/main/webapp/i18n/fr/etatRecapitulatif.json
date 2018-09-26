@@ -1,0 +1,24 @@
+
+{
+    "optisoinsApp": {
+        "etatRecapitulatif" : {
+            "home": {
+                "title": "EtatRecapitulatifs",
+                "createLabel": "Créer un nouveau Etat Recapitulatif",
+                "createOrEditLabel": "Créer ou éditer un Etat Recapitulatif"
+            },
+            "created": "Un nouveau Etat Recapitulatif a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Etat Recapitulatif avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Etat Recapitulatif avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Etat Recapitulatif {{ id }} ?"
+            },
+            "detail": {
+                "title": "Etat Recapitulatif"
+            },
+            "type": "Type",
+            "orthophoniste": "Orthophoniste",
+            "feuilleSoins": "Feuille Soins"
+        }
+    }
+}
