@@ -1,0 +1,24 @@
+{
+    "optisoinsApp": {
+        "remplacante": {
+            "home": {
+                "title": "Remplacantes",
+                "createLabel": "Créer un nouveau Remplacante",
+                "createOrEditLabel": "Créer ou éditer un Remplacante"
+            },
+            "created": "Un nouveau Remplacante a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Remplacante avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Remplacante avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Remplacante {{ id }} ?"
+            },
+            "detail": {
+                "title": "Remplacante"
+            },
+            "dateDebut": "Date Debut",
+            "dateFin": "Date Fin",
+            "patientele": "Patientele",
+            "orthophoniste": "Orthophoniste"
+        }
+    }
+}

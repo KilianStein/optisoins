@@ -1,0 +1,23 @@
+{
+    "optisoinsApp": {
+        "feuilleSoins": {
+            "home": {
+                "title": "FeuilleSoins",
+                "createLabel": "Créer un nouveau Feuille Soins",
+                "createOrEditLabel": "Créer ou éditer un Feuille Soins"
+            },
+            "created": "Un nouveau Feuille Soins a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Feuille Soins avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Feuille Soins avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Feuille Soins {{ id }} ?"
+            },
+            "detail": {
+                "title": "Feuille Soins"
+            },
+            "priseEnCharge": "Prise En Charge",
+            "actes": "Actes",
+            "etatRecapitulatif": "Etat Recapitulatif"
+        }
+    }
+}

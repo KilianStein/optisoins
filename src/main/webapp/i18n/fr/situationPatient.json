@@ -1,0 +1,13 @@
+{
+    "optisoinsApp": {
+        "SituationPatient": {
+            "null": "",
+            "SALARIE": "SALARIE",
+            "TRAVAILLEUR_INDEPENDANT": "TRAVAILLEUR_INDEPENDANT",
+            "FONCTIONNAIRE": "FONCTIONNAIRE",
+            "RETRAITE": "RETRAITE",
+            "SCOLAIRE": "SCOLAIRE",
+            "INACTIF": "INACTIF"
+        }
+    }
+}

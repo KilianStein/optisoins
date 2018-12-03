@@ -1,0 +1,26 @@
+{
+    "optisoinsApp": {
+        "patientele": {
+            "home": {
+                "title": "Patienteles",
+                "createLabel": "Créer un nouveau Patientele",
+                "createOrEditLabel": "Créer ou éditer un Patientele"
+            },
+            "created": "Un nouveau Patientele a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Patientele avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Patientele avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Patientele {{ id }} ?"
+            },
+            "detail": {
+                "title": "Patientele"
+            },
+            "nom": "Nom",
+            "description": "Description",
+            "orthophoniste": "Orthophoniste",
+            "titulaire": "Titulaire",
+            "patients": "Patients",
+            "remplacantes": "Remplacantes"
+        }
+    }
+}

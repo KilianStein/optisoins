@@ -1,0 +1,30 @@
+{
+    "optisoinsApp": {
+        "orthophoniste": {
+            "home": {
+                "title": "Orthophonistes",
+                "createLabel": "Créer un nouveau Orthophoniste",
+                "createOrEditLabel": "Créer ou éditer un Orthophoniste"
+            },
+            "created": "Un nouveau Orthophoniste a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Orthophoniste avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Orthophoniste avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Orthophoniste {{ id }} ?"
+            },
+            "detail": {
+                "title": "Orthophoniste"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "numeroCafat": "Numero Cafat",
+            "numeroRidet": "Numero Ridet",
+            "compteBancaire": "Compte Bancaire",
+            "patientele": "Patientele",
+            "etatsRecapitulatif": "Etats Recapitulatif",
+            "telephones": "Telephones",
+            "adresses": "Adresses",
+            "courriels": "Courriels"
+        }
+    }
+}

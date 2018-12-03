@@ -1,0 +1,44 @@
+{
+    "name": "Remplacante",
+    "fields": [
+        {
+            "fieldName": "dateDebut",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateFin",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "patientele",
+            "otherEntityName": "patientele",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "orthophoniste",
+            "otherEntityName": "orthophoniste",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "remplacante"
+        }
+    ],
+    "changelogDate": "20181203105319",
+    "entityTableName": "remplacante",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

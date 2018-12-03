@@ -1,0 +1,29 @@
+{
+    "optisoinsApp": {
+        "priseEnCharge": {
+            "home": {
+                "title": "PriseEnCharges",
+                "createLabel": "Créer un nouveau Prise En Charge",
+                "createOrEditLabel": "Créer ou éditer un Prise En Charge"
+            },
+            "created": "Un nouveau Prise En Charge a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Prise En Charge avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Prise En Charge avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Prise En Charge {{ id }} ?"
+            },
+            "detail": {
+                "title": "Prise En Charge"
+            },
+            "type": "Type",
+            "dateDebut": "Date Debut",
+            "dateFin": "Date Fin",
+            "accident": "Accident",
+            "nomTierImplique": "Nom Tier Implique",
+            "patient": "Patient",
+            "ordonnances": "Ordonnances",
+            "seances": "Seances",
+            "feuillesSoins": "Feuilles Soins"
+        }
+    }
+}

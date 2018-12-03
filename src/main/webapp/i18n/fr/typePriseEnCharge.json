@@ -1,0 +1,12 @@
+{
+    "optisoinsApp": {
+        "TypePriseEnCharge": {
+            "null": "",
+            "CAFAT_MUTUELLE": "CAFAT_MUTUELLE",
+            "LONGUE_MALADIE": "LONGUE_MALADIE",
+            "AIDE_MEDICALE_SUD": "AIDE_MEDICALE_SUD",
+            "AIDE_MEDICALE_NORD": "AIDE_MEDICALE_NORD",
+            "AIDE_MEDICALE_ILES": "AIDE_MEDICALE_ILES"
+        }
+    }
+}

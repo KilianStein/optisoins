@@ -1,0 +1,24 @@
+{
+    "optisoinsApp": {
+        "demandeEntentePrealable": {
+            "home": {
+                "title": "DemandeEntentePrealables",
+                "createLabel": "Créer un nouveau Demande Entente Prealable",
+                "createOrEditLabel": "Créer ou éditer un Demande Entente Prealable"
+            },
+            "created": "Un nouveau Demande Entente Prealable a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Demande Entente Prealable avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Demande Entente Prealable avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Demande Entente Prealable {{ id }} ?"
+            },
+            "detail": {
+                "title": "Demande Entente Prealable"
+            },
+            "numeroACP": "Numero ACP",
+            "nombreSeances": "Nombre Seances",
+            "ordonnance": "Ordonnance",
+            "amo": "Amo"
+        }
+    }
+}

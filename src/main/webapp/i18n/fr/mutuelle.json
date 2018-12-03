@@ -1,0 +1,24 @@
+{
+    "optisoinsApp": {
+        "mutuelle": {
+            "home": {
+                "title": "Mutuelles",
+                "createLabel": "Créer un nouveau Mutuelle",
+                "createOrEditLabel": "Créer ou éditer un Mutuelle"
+            },
+            "created": "Un nouveau Mutuelle a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Mutuelle avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Mutuelle avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Mutuelle {{ id }} ?"
+            },
+            "detail": {
+                "title": "Mutuelle"
+            },
+            "nom": "Nom",
+            "numero": "Numero",
+            "type": "Type",
+            "assure": "Assure"
+        }
+    }
+}

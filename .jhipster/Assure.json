@@ -1,0 +1,82 @@
+{
+    "name": "Assure",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prenom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroCafat",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateNaissance",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "lienAssure",
+            "fieldType": "TypeLienAssure",
+            "fieldValues": "CONJOINT,CONCUBIN,ENFANT,AUTRE"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "courriel",
+            "otherEntityName": "courriel",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "assure"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adresse",
+            "otherEntityName": "adresse",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "assure"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "telephone",
+            "otherEntityName": "telephone",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "assure"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cartesAideMedicale",
+            "otherEntityName": "carteAideMedicale",
+            "otherEntityRelationshipName": "assure"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mutuelles",
+            "otherEntityName": "mutuelle",
+            "otherEntityRelationshipName": "assure"
+        }
+    ],
+    "changelogDate": "20181203105326",
+    "entityTableName": "assure",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

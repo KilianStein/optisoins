@@ -1,0 +1,44 @@
+{
+    "name": "DemandeEntentePrealable",
+    "fields": [
+        {
+            "fieldName": "numeroACP",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nombreSeances",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "ordonnance",
+            "otherEntityName": "ordonnance",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "amo",
+            "otherEntityName": "amo",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "demandeEntentePrealable"
+        }
+    ],
+    "changelogDate": "20181203105334",
+    "entityTableName": "demande_entente_prealable",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-demande-entente-prealable-heading" jhiTranslate="optisoinsApp.demandeEntentePrealable.home.createOrEditLabel">Create or edit a Demande Entente Prealable</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!demandeEntentePrealable.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="demandeEntentePrealable.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.demandeEntentePrealable.numeroACP" for="field_numeroACP">Numero ACP</label>
+                    <input type="text" class="form-control" name="numeroACP" id="field_numeroACP"
+                        [(ngModel)]="demandeEntentePrealable.numeroACP" required/>
+                    <div [hidden]="!(editForm.controls.numeroACP?.dirty && editForm.controls.numeroACP?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numeroACP?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.demandeEntentePrealable.nombreSeances" for="field_nombreSeances">Nombre Seances</label>
+                    <input type="number" class="form-control" name="nombreSeances" id="field_nombreSeances"
+                        [(ngModel)]="demandeEntentePrealable.nombreSeances" required/>
+                    <div [hidden]="!(editForm.controls.nombreSeances?.dirty && editForm.controls.nombreSeances?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nombreSeances?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.nombreSeances?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.demandeEntentePrealable.ordonnance" for="field_ordonnance">Ordonnance</label>
+                    <select class="form-control" id="field_ordonnance" name="ordonnance" [(ngModel)]="demandeEntentePrealable.ordonnanceId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ordonnanceOption.id" *ngFor="let ordonnanceOption of ordonnances; trackBy: trackOrdonnanceById">{{ordonnanceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="optisoinsApp.demandeEntentePrealable.amo" for="field_amo">Amo</label>
+                    <select class="form-control" id="field_amo" name="amo" [(ngModel)]="demandeEntentePrealable.amoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="amoOption.id" *ngFor="let amoOption of amos; trackBy: trackAmoById">{{amoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

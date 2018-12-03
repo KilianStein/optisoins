@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mutuelle">
+            <h2><span jhiTranslate="optisoinsApp.mutuelle.detail.title">Mutuelle</span> {{mutuelle.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.mutuelle.nom">Nom</span></dt>
+                <dd>
+                    <span>{{mutuelle.nom}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.mutuelle.numero">Numero</span></dt>
+                <dd>
+                    <span>{{mutuelle.numero}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.mutuelle.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypeMutuelle.' + mutuelle.type}}">{{mutuelle.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.mutuelle.assure">Assure</span></dt>
+                <dd>
+                    <div *ngIf="mutuelle.assureId">
+                        <a [routerLink]="['/assure', mutuelle.assureId, 'view']">{{mutuelle.assureId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mutuelle', mutuelle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

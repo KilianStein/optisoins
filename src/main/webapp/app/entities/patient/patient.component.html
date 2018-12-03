@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="optisoinsApp.patient.home.title">Patients</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-patient" [routerLink]="['/patient/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="optisoinsApp.patient.home.createLabel">
+            Create new Patient
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="patients">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="prenom"><span jhiTranslate="optisoinsApp.patient.prenom">Prenom</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nom"><span jhiTranslate="optisoinsApp.patient.nom">Nom</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroCafat"><span jhiTranslate="optisoinsApp.patient.numeroCafat">Numero Cafat</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dateNaissance"><span jhiTranslate="optisoinsApp.patient.dateNaissance">Date Naissance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="employeur"><span jhiTranslate="optisoinsApp.patient.employeur">Employeur</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="situation"><span jhiTranslate="optisoinsApp.patient.situation">Situation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="patienteleId"><span jhiTranslate="optisoinsApp.patient.patientele">Patientele</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assureId"><span jhiTranslate="optisoinsApp.patient.assure">Assure</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let patient of patients ;trackBy: trackId">
+                <td><a [routerLink]="['/patient', patient.id, 'view' ]">{{patient.id}}</a></td>
+                <td>{{patient.prenom}}</td>
+                <td>{{patient.nom}}</td>
+                <td>{{patient.numeroCafat}}</td>
+                <td>{{patient.dateNaissance | date:'mediumDate'}}</td>
+                <td>{{patient.employeur}}</td>
+                <td jhiTranslate="{{'optisoinsApp.SituationPatient.' + patient.situation}}">{{patient.situation}}</td>
+                <td>
+                    <div *ngIf="patient.patienteleId">
+                        <a [routerLink]="['../patientele', patient.patienteleId , 'view' ]" >{{patient.patienteleId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="patient.assureId">
+                        <a [routerLink]="['../assure', patient.assureId , 'view' ]" >{{patient.assureId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/patient', patient.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/patient', patient.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'patient/'+ patient.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

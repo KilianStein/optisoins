@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="courriel">
+            <h2><span jhiTranslate="optisoinsApp.courriel.detail.title">Courriel</span> {{courriel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.courriel.email">Email</span></dt>
+                <dd>
+                    <span>{{courriel.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.courriel.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypeCourriel.' + courriel.type}}">{{courriel.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.courriel.commentaire">Commentaire</span></dt>
+                <dd>
+                    <span>{{courriel.commentaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.courriel.orthophoniste">Orthophoniste</span></dt>
+                <dd>
+                    <div *ngIf="courriel.orthophonisteId">
+                        <a [routerLink]="['/orthophoniste', courriel.orthophonisteId, 'view']">{{courriel.orthophonisteId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.courriel.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="courriel.patientId">
+                        <a [routerLink]="['/patient', courriel.patientId, 'view']">{{courriel.patientId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.courriel.medecin">Medecin</span></dt>
+                <dd>
+                    <div *ngIf="courriel.medecinId">
+                        <a [routerLink]="['/medecin', courriel.medecinId, 'view']">{{courriel.medecinId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/courriel', courriel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="optisoinsApp.adresse.home.title">Adresses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-adresse" [routerLink]="['/adresse/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="optisoinsApp.adresse.home.createLabel">
+            Create new Adresse
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="adresses">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.appartement">Appartement</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.batiment">Batiment</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.rue">Rue</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.codePostal">Code Postal</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.boitePostale">Boite Postale</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.commune">Commune</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.type">Type</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.commentaire">Commentaire</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.nonValide">Non Valide</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.orthophoniste">Orthophoniste</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.patient">Patient</span></th>
+            <th><span jhiTranslate="optisoinsApp.adresse.medecin">Medecin</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let adresse of adresses ;trackBy: trackId">
+                <td><a [routerLink]="['/adresse', adresse.id, 'view' ]">{{adresse.id}}</a></td>
+                <td>{{adresse.appartement}}</td>
+                <td>{{adresse.batiment}}</td>
+                <td>{{adresse.rue}}</td>
+                <td>{{adresse.codePostal}}</td>
+                <td>{{adresse.boitePostale}}</td>
+                <td>{{adresse.commune}}</td>
+                <td jhiTranslate="{{'optisoinsApp.TypeAdresse.' + adresse.type}}">{{adresse.type}}</td>
+                <td>{{adresse.commentaire}}</td>
+                <td>{{adresse.nonValide}}</td>
+                <td>
+                    <div *ngIf="adresse.orthophonisteId">
+                        <a [routerLink]="['../orthophoniste', adresse.orthophonisteId , 'view' ]" >{{adresse.orthophonisteId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="adresse.patientId">
+                        <a [routerLink]="['../patient', adresse.patientId , 'view' ]" >{{adresse.patientId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="adresse.medecinId">
+                        <a [routerLink]="['../medecin', adresse.medecinId , 'view' ]" >{{adresse.medecinId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/adresse', adresse.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/adresse', adresse.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'adresse/'+ adresse.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

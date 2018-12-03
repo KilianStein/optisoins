@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="seance">
+            <h2><span jhiTranslate="optisoinsApp.seance.detail.title">Seance</span> {{seance.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.seance.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{seance.dateDebut}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{seance.dateFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.origine">Origine</span></dt>
+                <dd>
+                    <span>{{seance.origine}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.domicile">Domicile</span></dt>
+                <dd>
+                    <span>{{seance.domicile}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.ticketModerateur">Ticket Moderateur</span></dt>
+                <dd>
+                    <span>{{seance.ticketModerateur}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.bilan">Bilan</span></dt>
+                <dd>
+                    <span>{{seance.bilan}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.etat">Etat</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.EtatSeance.' + seance.etat}}">{{seance.etat}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.commentaire">Commentaire</span></dt>
+                <dd>
+                    <span>{{seance.commentaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.orthophoniste">Orthophoniste</span></dt>
+                <dd>
+                    <div *ngIf="seance.orthophonisteId">
+                        <a [routerLink]="['/orthophoniste', seance.orthophonisteId, 'view']">{{seance.orthophonisteId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.priseEnCharge">Prise En Charge</span></dt>
+                <dd>
+                    <div *ngIf="seance.priseEnChargeId">
+                        <a [routerLink]="['/prise-en-charge', seance.priseEnChargeId, 'view']">{{seance.priseEnChargeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.seance.feuilleSoins">Feuille Soins</span></dt>
+                <dd>
+                    <div *ngIf="seance.feuilleSoinsId">
+                        <a [routerLink]="['/feuille-soins', seance.feuilleSoinsId, 'view']">{{seance.feuilleSoinsId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/seance', seance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

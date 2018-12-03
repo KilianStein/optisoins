@@ -1,0 +1,45 @@
+{
+    "name": "Medecin",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "identifiant",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "adresses",
+            "otherEntityName": "adresse",
+            "otherEntityRelationshipName": "medecin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "courriels",
+            "otherEntityName": "courriel",
+            "otherEntityRelationshipName": "medecin"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "telephones",
+            "otherEntityName": "telephone",
+            "otherEntityRelationshipName": "medecin"
+        }
+    ],
+    "changelogDate": "20181203105328",
+    "entityTableName": "medecin",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

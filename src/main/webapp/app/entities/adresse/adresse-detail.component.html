@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adresse">
+            <h2><span jhiTranslate="optisoinsApp.adresse.detail.title">Adresse</span> {{adresse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="optisoinsApp.adresse.appartement">Appartement</span></dt>
+                <dd>
+                    <span>{{adresse.appartement}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.batiment">Batiment</span></dt>
+                <dd>
+                    <span>{{adresse.batiment}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.rue">Rue</span></dt>
+                <dd>
+                    <span>{{adresse.rue}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.codePostal">Code Postal</span></dt>
+                <dd>
+                    <span>{{adresse.codePostal}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.boitePostale">Boite Postale</span></dt>
+                <dd>
+                    <span>{{adresse.boitePostale}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.commune">Commune</span></dt>
+                <dd>
+                    <span>{{adresse.commune}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'optisoinsApp.TypeAdresse.' + adresse.type}}">{{adresse.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.commentaire">Commentaire</span></dt>
+                <dd>
+                    <span>{{adresse.commentaire}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.nonValide">Non Valide</span></dt>
+                <dd>
+                    <span>{{adresse.nonValide}}</span>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.orthophoniste">Orthophoniste</span></dt>
+                <dd>
+                    <div *ngIf="adresse.orthophonisteId">
+                        <a [routerLink]="['/orthophoniste', adresse.orthophonisteId, 'view']">{{adresse.orthophonisteId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="adresse.patientId">
+                        <a [routerLink]="['/patient', adresse.patientId, 'view']">{{adresse.patientId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="optisoinsApp.adresse.medecin">Medecin</span></dt>
+                <dd>
+                    <div *ngIf="adresse.medecinId">
+                        <a [routerLink]="['/medecin', adresse.medecinId, 'view']">{{adresse.medecinId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adresse', adresse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

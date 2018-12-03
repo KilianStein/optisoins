@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Seance.
+    -->
+    <changeSet id="20181203105331-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="orthophoniste_id"
+                                 baseTableName="seance"
+                                 constraintName="fk_seance_orthophoniste_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="orthophoniste"/>
+
+        <addForeignKeyConstraint baseColumnNames="prise_en_charge_id"
+                                 baseTableName="seance"
+                                 constraintName="fk_seance_prise_en_charge_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prise_en_charge"/>
+
+        <addForeignKeyConstraint baseColumnNames="feuille_soins_id"
+                                 baseTableName="seance"
+                                 constraintName="fk_seance_feuille_soins_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="feuille_soins"/>
+
+    </changeSet>
+</databaseChangeLog>
